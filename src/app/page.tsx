@@ -1,5 +1,5 @@
 import { Reveal } from "@/components/motion/reveal";
-import { DetectionArt } from "@/components/home/detection-art";
+import { NeuralNetArt } from "@/components/home/neural-net-art";
 import { FloatingChips } from "@/components/home/floating-chips";
 import { QuoteReroll } from "@/components/home/quote-reroll";
 import { siteConfig } from "@/config/site";
@@ -25,7 +25,13 @@ export default function HomePage() {
           </h1>
 
           <Reveal delay={0.1}>
-            <div className="flex justify-center">
+            <div className="mt-8">
+              <NeuralNetArt />
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.15}>
+            <div className="mt-8 flex justify-center">
               <QuoteReroll />
             </div>
           </Reveal>
@@ -50,12 +56,6 @@ export default function HomePage() {
           </Reveal>
         </div>
       </div>
-
-      <Reveal delay={0.25}>
-        <div className="mt-8">
-          <DetectionArt />
-        </div>
-      </Reveal>
     </div>
   );
 }
