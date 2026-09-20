@@ -67,7 +67,13 @@ export function QuoteReroll() {
   const quote = QUOTES[index];
 
   return (
-    <div className="mt-8 flex max-w-xl items-start gap-3">
+    // The reload button sits in its own fixed-width track with a matching
+    // empty spacer track on the other side, so the quote card's own center
+    // lands on the grid's center no matter how wide the button column is —
+    // a plain flex row would instead center the (quote + button) pair,
+    // visibly off-centering the quote itself.
+    <div className="mt-8 grid w-full max-w-xl grid-cols-[2rem_1fr_2rem] items-start gap-3">
+      <div aria-hidden />
       <AnimatePresence mode="wait">
         <motion.div
           key={index}

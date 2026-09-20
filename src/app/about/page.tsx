@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
+import Image from "next/image";
 import { Reveal } from "@/components/motion/reveal";
 import { siteConfig } from "@/config/site";
+
+export const metadata: Metadata = {
+  title: "About",
+};
 
 export default function AboutPage() {
   return (
@@ -10,12 +16,17 @@ export default function AboutPage() {
 
       <div className="mt-10 grid gap-10 sm:grid-cols-[200px_1fr]">
         <div
-          data-cursor-label="professional photo goes here"
-          className="flex aspect-[4/5] items-center justify-center rounded-2xl border border-dashed border-border bg-surface text-center"
+          data-cursor-label="that's me"
+          className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-border bg-surface"
         >
-          <span className="max-w-[14ch] font-mono text-xs uppercase tracking-wide text-muted">
-            [Professional photo]
-          </span>
+          <Image
+            src="/images/aryan-professional.jpg"
+            alt={siteConfig.name}
+            fill
+            className="object-cover"
+            sizes="(min-width: 640px) 200px, 100vw"
+            priority
+          />
         </div>
 
         <Reveal>

@@ -18,7 +18,7 @@ export function ThemeToggle() {
       }}
       aria-pressed={isDark}
       data-cursor-label={isDark ? "let there be light" : "kill the lights"}
-      className="group relative flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border text-ink transition-colors hover:border-primary focus-visible:outline-tertiary"
+      className="group relative flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border bg-surface text-ink shadow-ambient transition-colors hover:border-primary focus-visible:outline-tertiary"
     >
       <span className="sr-only">
         Switch to {isDark ? "light" : "dark"} mode

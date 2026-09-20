@@ -1,22 +1,10 @@
+import type { Metadata } from "next";
+import Image from "next/image";
 import { siteConfig } from "@/config/site";
-import { PlaceholderNote } from "@/components/ui/placeholder-note";
 
-function Section({
-  title,
-  children,
-}: {
-  title: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <section className="border-t border-border py-8 first:border-t-0 first:pt-0">
-      <h2 className="font-mono text-xs uppercase tracking-wide text-muted">
-        {title}
-      </h2>
-      <div className="mt-4 space-y-4">{children}</div>
-    </section>
-  );
-}
+export const metadata: Metadata = {
+  title: "Résumé",
+};
 
 export default function ResumePage() {
   return (
@@ -38,57 +26,15 @@ export default function ResumePage() {
         </a>
       </div>
 
-      <div className="mt-8">
-        <PlaceholderNote label="In progress">
-          <p className="text-sm">
-            The résumé below is a placeholder — the final version is on its
-            way.
-          </p>
-        </PlaceholderNote>
-      </div>
-
-      <div className="mt-10">
-        <Section title="Education">
-          <div>
-            <p className="font-semibold text-ink">[School Name]</p>
-            <p className="text-sm text-muted">[Expected graduation year] · [GPA / honors, if relevant]</p>
-          </div>
-        </Section>
-
-        <Section title="Experience">
-          <div>
-            <p className="font-semibold text-ink">
-              [Role / Organization]{" "}
-              <span className="font-mono text-xs font-normal text-muted">
-                [Dates]
-              </span>
-            </p>
-            <ul className="mt-2 list-disc space-y-1 pl-5 text-ink">
-              <li>[What you did, phrased as an outcome.]</li>
-              <li>[Another concrete responsibility or result.]</li>
-            </ul>
-          </div>
-        </Section>
-
-        <Section title="Skills">
-          <div className="flex flex-wrap gap-2">
-            {["[Skill]", "[Skill]", "[Skill]", "[Skill]"].map((skill, i) => (
-              <span
-                key={i}
-                className="rounded-full bg-surface px-3 py-1 font-mono text-xs text-ink"
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
-        </Section>
-
-        <Section title="Activities & Honors">
-          <ul className="list-disc space-y-1 pl-5 text-ink">
-            <li>[Club, award, or activity worth listing.]</li>
-            <li>[Another one.]</li>
-          </ul>
-        </Section>
+      <div className="relative mx-auto mt-10 aspect-[1700/2200] w-full max-w-xl overflow-hidden rounded-2xl border border-border shadow-lift">
+        <Image
+          src="/images/resume/page-1.png"
+          alt={`${siteConfig.name}'s résumé`}
+          fill
+          priority
+          className="object-cover"
+          sizes="(min-width: 640px) 576px, 100vw"
+        />
       </div>
     </div>
   );

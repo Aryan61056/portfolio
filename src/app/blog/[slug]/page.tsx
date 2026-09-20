@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
@@ -5,6 +6,16 @@ import { getAllSlugs, getPostSource } from "@/lib/blog";
 
 export function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const post = getPostSource(slug);
+  return { title: post?.frontmatter.title ?? "Blog" };
 }
 
 function formatDate(iso: string) {

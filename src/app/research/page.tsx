@@ -1,5 +1,10 @@
+import type { Metadata } from "next";
 import { Reveal } from "@/components/motion/reveal";
 import { researchEntries, type AssessmentType } from "@/content/research";
+
+export const metadata: Metadata = {
+  title: "Research",
+};
 
 const SECTION_ORDER: AssessmentType[] = [
   "Research",

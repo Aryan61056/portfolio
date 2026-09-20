@@ -1,7 +1,12 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { Reveal, Stagger } from "@/components/motion/reveal";
 import { projects, type Project } from "@/content/projects";
 import { siteConfig } from "@/config/site";
+
+export const metadata: Metadata = {
+  title: "Projects",
+};
 
 function ProjectCard({ project, tilt }: { project: Project; tilt: "left" | "right" }) {
   return (

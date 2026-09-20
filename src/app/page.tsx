@@ -1,6 +1,7 @@
 import { Reveal } from "@/components/motion/reveal";
-import { NeuralNetArt } from "@/components/home/neural-net-art";
+import { VisionMarks } from "@/components/home/vision-marks";
 import { FloatingChips } from "@/components/home/floating-chips";
+import { HeroTexture } from "@/components/home/hero-texture";
 import { QuoteReroll } from "@/components/home/quote-reroll";
 import { siteConfig } from "@/config/site";
 
@@ -10,11 +11,13 @@ export default function HomePage() {
   const leadingWords = nameParts.slice(0, -1).join(" ");
 
   return (
-    <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-24">
-      <div className="relative min-h-[70vh]">
+    <div className="relative overflow-x-hidden py-16 sm:py-24">
+      <HeroTexture />
+      <div className="relative flex min-h-[max(70vh,640px)] items-center justify-center">
         <FloatingChips />
+        <VisionMarks />
 
-        <div className="relative z-10 mx-auto flex max-w-2xl flex-col items-center text-center">
+        <div className="relative z-10 mx-auto flex max-w-2xl flex-col items-center px-4 text-center sm:px-6">
           <p className="font-mono text-sm uppercase tracking-wide text-primary">
             {siteConfig.tagline}
           </p>
@@ -25,13 +28,7 @@ export default function HomePage() {
           </h1>
 
           <Reveal delay={0.1}>
-            <div className="mt-8">
-              <NeuralNetArt />
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.15}>
-            <div className="mt-8 flex justify-center">
+            <div className="flex justify-center">
               <QuoteReroll />
             </div>
           </Reveal>

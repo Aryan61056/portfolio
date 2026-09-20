@@ -1,5 +1,10 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { mentor } from "@/content/mentor";
+
+export const metadata: Metadata = {
+  title: "Mentor",
+};
 
 export default function MentorPage() {
   return (

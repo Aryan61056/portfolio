@@ -13,9 +13,20 @@ export function SiteHeader() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const reduced = useReducedMotion();
+  const isHome = pathname === "/";
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-bg/85 backdrop-blur">
+    <header
+      className={`top-0 z-40 ${
+        // On the home page the header floats transparently over the hero's
+        // own top padding (exactly as tall as this header) instead of
+        // pushing it down, so the hero's background glow shows straight
+        // through behind the nav instead of stopping at an opaque bar.
+        isHome
+          ? "fixed inset-x-0 bg-bg/10 backdrop-blur-sm"
+          : "sticky border-b border-border bg-bg/85 backdrop-blur"
+      }`}
+    >
       <a
         href="#main-content"
         className="sr-only focus-visible:not-sr-only focus-visible:absolute focus-visible:left-4 focus-visible:top-4 focus-visible:z-50 focus-visible:rounded-full focus-visible:bg-primary focus-visible:px-4 focus-visible:py-2 focus-visible:text-sm focus-visible:font-semibold focus-visible:text-primary-ink"
@@ -26,7 +37,13 @@ export function SiteHeader() {
         <Link
           href="/"
           data-cursor-label="home base"
-          className="font-mono text-sm font-bold uppercase tracking-wide text-ink transition-colors hover:text-primary"
+          className={`font-mono text-sm font-bold uppercase tracking-wide text-ink transition-colors hover:text-primary ${
+            // The hero's own giant "Aryan Patel" h1 sits right below the
+            // header on mobile home — showing the name again in the corner
+            // reads as redundant clutter, so it's skipped there (kept from
+            // sm up, where there's enough width for it not to feel doubled).
+            isHome ? "invisible sm:visible" : ""
+          }`}
         >
           {siteConfig.name}
         </Link>
@@ -73,7 +90,7 @@ export function SiteHeader() {
             data-cursor-label="open menu"
             aria-expanded={mobileOpen}
             aria-controls="mobile-nav"
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-ink md:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-surface text-ink shadow-ambient md:hidden"
           >
             <span className="sr-only">Open menu</span>
             <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">

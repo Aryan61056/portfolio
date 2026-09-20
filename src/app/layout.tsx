@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Space_Mono } from "next/font/google";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { ThemeProvider } from "@/lib/theme-context";
 import { themeInitScript } from "@/lib/theme-script";
@@ -24,7 +25,10 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: `${siteConfig.name} — Personal Portfolio`,
+  title: {
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`,
+  },
   description: siteConfig.description,
 };
 
@@ -53,6 +57,7 @@ export default function RootLayout({
           <main id="main-content">{children}</main>
           <SiteFooter />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
