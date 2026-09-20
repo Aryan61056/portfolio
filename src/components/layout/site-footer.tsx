@@ -14,6 +14,8 @@ export function SiteFooter() {
         <div className="flex items-center gap-4 font-mono text-xs">
           <a
             href={siteConfig.social.github}
+            target="_blank"
+            rel="noopener noreferrer"
             data-cursor-label="probably some bugs in here"
             className="text-muted transition-colors hover:text-primary"
           >
@@ -22,6 +24,8 @@ export function SiteFooter() {
           {siteConfig.social.linkedin ? (
             <a
               href={siteConfig.social.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
               data-cursor-label="the professional version of me"
               className="text-muted transition-colors hover:text-primary"
             >

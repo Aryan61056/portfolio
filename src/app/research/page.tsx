@@ -51,6 +51,8 @@ export default function ResearchPage() {
                       <li>
                         <a
                           href={entry.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           data-cursor-label="open document"
                           className="group block rounded-2xl border border-border p-4 transition-colors hover:border-primary"
                         >

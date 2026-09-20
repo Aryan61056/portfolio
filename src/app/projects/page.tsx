@@ -54,6 +54,8 @@ function ProjectCard({ project, tilt }: { project: Project; tilt: "left" | "righ
             <a
               key={link.href}
               href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
               className="font-mono text-xs font-semibold text-primary underline decoration-dotted underline-offset-4"
             >
               {link.label} →
@@ -89,6 +91,8 @@ function ProjectSection({
           Coming soon — check{" "}
           <a
             href={siteConfig.social.github}
+            target="_blank"
+            rel="noopener noreferrer"
             data-cursor-label="probably some bugs in here"
             className="text-primary underline decoration-dotted underline-offset-4"
           >

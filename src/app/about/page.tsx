@@ -65,6 +65,8 @@ export default function AboutPage() {
             </a>
             <a
               href={siteConfig.social.github}
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-muted underline decoration-dotted underline-offset-4 hover:text-primary"
             >
               GitHub
@@ -72,6 +74,8 @@ export default function AboutPage() {
             {siteConfig.social.linkedin ? (
               <a
                 href={siteConfig.social.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-muted underline decoration-dotted underline-offset-4 hover:text-primary"
               >
                 LinkedIn
