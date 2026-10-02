@@ -1,12 +1,30 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { headers } from "next/headers";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "Résumé",
 };
 
-export default function ResumePage() {
+export default async function ResumePage() {
+  // Vercel geolocates the request IP and passes it along as headers.
+  const h = await headers();
+  const inCalifornia =
+    h.get("x-vercel-ip-country") === "US" &&
+    h.get("x-vercel-ip-country-region") === "CA";
+
+  if (inCalifornia) {
+    return (
+      <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-24">
+        <h1 className="font-display text-4xl font-semibold tracking-tight sm:text-5xl">
+          Coming Soon!
+        </h1>
+        <p className="mt-2 text-muted">{siteConfig.name}</p>
+      </div>
+    );
+  }
+
   return (
     <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-24">
       <div className="flex flex-wrap items-end justify-between gap-4">
