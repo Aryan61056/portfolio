@@ -1,0 +1,15 @@
+---
+title: "When the Test Isn't a Test"
+date: "2026-09-28"
+excerpt: "A parking-lot detector paper showed me that a random train/test split can quietly turn a test set into a memory test, and I rethought how I evaluate my own robotics vision work."
+---
+
+I completed my 3rd research assessment this week and had a mock interview in ISM.
+
+The [assessment](/research/assessment-3-parking-occupancy-detectors.pdf) was on a paper that compared five object detectors used to locate open parking spaces. The accuracy was above 0.985 mAP when the data was split randomly, and the models were all within 0.0055 of each other. Next, the authors tested on different dates from a different camera angle, and the ranking almost flipped. Faster R-CNN moved from the bottom to the top. The camera was not moved and took a frame every 15 minutes, so 50.2% of the test frames were captured within 15 minutes of a training frame. About half the test set consisted of nearly the same material the models had already seen. I would have totally believed that first table, without any doubts.
+
+This is important to my own work. In my previous blog entry, I promised to break down my robotics vision tests by lighting and by distance. Slicing by lighting doesn't help if training and testing use frames from the same practice session. I used to believe architecture was the most important part of a good vision system. After this paper, I believe the split is more significant. I will now go through my images and look for near duplicates, then train one detector twice, once with a random split and once with a split by session, and compare the scores. Also, the abstract and body of that paper provide conflicting values for the same difference, so I'll start checking figures myself from now on.
+
+We then partnered up for the mock interviews, with one person being the professional and the other the student. I hadn't prepared, and it made me realize that I need to spend time thinking through my responses so I'm prepared for the symposium. Our teacher gave us 15 reference questions, and I'm writing answers to all of them before the next round.
+
+The professional symposium is coming up, and I'm looking forward to it. I'd like the near-duplicate check and my interview answers completed by next week.
